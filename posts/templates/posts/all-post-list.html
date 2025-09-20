@@ -3,5 +3,17 @@
 {% block content %}
 <h1>Post</h1>
 
+<form action="/posts/create/" method="post">
+    {% csrf_token %}
+    {{ post_form }}
+    <button type="submit">Post</button>
+</form>
 
+
+{% for post in posts %}
+    <p>
+        {{ post.author }}
+        {{ post.content }}
+    </p>
+{% endfor %}
 {% endblock %}
