@@ -10,6 +10,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
+# photo or video
 class PostMedia(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     file = models.FileField(

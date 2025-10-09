@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import include, path
 import posts
 from django.views.generic.base import RedirectView
+from . import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -26,3 +28,6 @@ urlpatterns = [
     path("posts/", include("posts.urls")),
     path("", RedirectView.as_view(url="/posts/")),
 ]
+
+# serve media 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

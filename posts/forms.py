@@ -20,7 +20,7 @@ class MultipleFileField(forms.FileField):
         return result
 
 class PostForm(ModelForm):
-    media_files = MultipleFileField()
+    media_files = MultipleFileField(required=False)
     class Meta:
         model = Post
         fields = ["content"]
