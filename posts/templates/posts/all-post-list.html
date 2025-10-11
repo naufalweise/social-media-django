@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+<main>
+    
+
 <h1>Post</h1>
 
 <form action="/posts/create/" method="post" enctype="multipart/form-data">
@@ -9,14 +12,20 @@
     <button type="submit">Post</button>
 </form>
 
-
+<div class="post-list">
 {% for post in posts %}
-    <p>
-        {{ post.author }}
-        {{ post.content }}
-        {% for m in post.postmedia_set.all %}
-            <img src="{{ m.file.url }}" height="100px" alt="post" />
-        {% endfor %}
-    </p>
+    <div class="post card">
+        <div>
+            {% for m in post.postmedia_set.all %}
+                <img src="{{ m.file.url }}" height="100px" alt="post" />
+            {% endfor %}
+        </div>
+
+        <p class="card-text"><span class="post-author">{{ post.author }}</span>{{ post.content }}</p>
+    </div>
 {% endfor %}
+</div>
+
+
+</main>
 {% endblock %}
