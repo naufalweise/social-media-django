@@ -31,3 +31,5 @@ urlpatterns = [
 
 # serve media 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# serve static files
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
